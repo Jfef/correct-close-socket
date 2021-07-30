@@ -166,3 +166,9 @@ This has to do with the fact that splice() (on which sendfile() is based) can on
 Please note that the functions do not wait until all the data has been acknowledged, it only waits until it has been sent.
 
 ------
+
+### 关于SO_LINGER
+
+此问题已导致在邮件列表、Usenet 和论坛上发布大量帖子，并且这些帖子都很快在 SO_LINGER 套接字选项上归零，该选项似乎只是考虑到了这个问题：“启用后，关闭 (2 ) 或 shutdown(2) 将不会返回，直到套接字的所有排队消息都已成功发送或已达到延迟超时。 否则，调用会立即返回并在后台完成关闭。 当套接字作为 exit(2) 的一部分关闭时，它总是在后台徘徊。” 所以，我们设置了这个选项，重新运行我们的程序。 它仍然不起作用，并不是我们所有的百万字节都到达了。
+
+当socket 设置了linger 后，作为exit()的一部分，无法解决这个问题。
