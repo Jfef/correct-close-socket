@@ -215,3 +215,4 @@ l_onoff非0，l_linger非0，close()用上述b方式关闭连接。
 -----
 
 受限于个人能力，内容翻译和理解上也有不清楚，和不全面之处。欢迎指正
+参考：http://m.blog.chinaunix.net/uid-22954220-id-4947839.html
